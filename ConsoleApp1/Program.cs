@@ -37,7 +37,7 @@ class Program
                 break;
 
             case 3:
-                Console.WriteLine("Entrando al menu de prestamos...");
+                ShowLoansMenu();
                 break;
 
             case 4:
@@ -411,5 +411,69 @@ static void ShowUsersMenu()
                 break;
         }
     }
+}
+static void ShowLoansMenu()
+{
+    int opcion = 0;
+
+    while (opcion != 5)
+    {
+        Console.WriteLine("\n===== MENU PRESTAMOS =====");
+        Console.WriteLine("1. Crear prestamo");
+        Console.WriteLine("2. Listar prestamos");
+        Console.WriteLine("3. Registrar devolucion");
+        Console.WriteLine("4. Eliminar prestamo");
+        Console.WriteLine("5. Volver");
+
+        Console.Write("Seleccione una opcion: ");
+
+        opcion = Convert.ToInt32(Console.ReadLine());
+
+        switch (opcion)
+        {
+            case 1:
+                CreateLoan();
+                break;
+
+            case 2:
+                ListLoansMenu();
+                break;
+
+            case 3:
+                RegisterReturn();
+                break;
+
+            case 4:
+                DeleteLoan();
+                break;
+
+            case 5:
+                Console.WriteLine("Volviendo...");
+                break;
+
+            default:
+                Console.WriteLine("Opcion invalida");
+                break;
+        }
+    }
+}
+static void CreateLoan()
+{
+    Console.WriteLine("Creando prestamo...");
+}
+
+static void ListLoansMenu()
+{
+    Console.WriteLine("Listando prestamos...");
+}
+
+static void RegisterReturn()
+{
+    Console.WriteLine("Registrando devolucion...");
+}
+
+static void DeleteLoan()
+{
+    Console.WriteLine("Eliminando prestamo...");
 }
 }
