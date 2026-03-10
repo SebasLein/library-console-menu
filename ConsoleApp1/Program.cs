@@ -33,7 +33,7 @@ class Program
                 break;
 
             case 2:
-                Console.WriteLine("Entrando al menu de usuarios...");
+                ShowUsersMenu();
                 break;
 
             case 3:
@@ -361,5 +361,55 @@ static void DeleteBook()
     books.RemoveAt(seleccion - 1);
 
     Console.WriteLine("Libro eliminado correctamente.");
+}
+static void ShowUsersMenu()
+{
+    int opcion = 0;
+
+    while (opcion != 6)
+    {
+        Console.WriteLine("\n===== MENU USUARIOS =====");
+        Console.WriteLine("1. Registrar usuario");
+        Console.WriteLine("2. Listar usuarios");
+        Console.WriteLine("3. Ver detalle de usuario");
+        Console.WriteLine("4. Actualizar usuario");
+        Console.WriteLine("5. Eliminar usuario");
+        Console.WriteLine("6. Volver");
+
+        Console.Write("Seleccione una opcion: ");
+
+        opcion = Convert.ToInt32(Console.ReadLine());
+
+        switch (opcion)
+        {
+            case 1:
+                RegisterUser();
+                break;
+
+            case 2:
+                ListUsers();
+                break;
+
+            case 3:
+                ViewUserDetail();
+                break;
+
+            case 4:
+                UpdateUserMenu();
+                break;
+
+            case 5:
+                DeleteUser();
+                break;
+
+            case 6:
+                Console.WriteLine("Volviendo...");
+                break;
+
+            default:
+                Console.WriteLine("Opcion invalida");
+                break;
+        }
+    }
 }
 }
