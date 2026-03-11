@@ -26,33 +26,13 @@ class Program
 
             switch (opcion)
             {
-                case 1:
-                    ShowBooksMenu();
-                    break;
-
-                case 2:
-                    ShowUsersMenu();
-                    break;
-
-                case 3:
-                    ShowLoansMenu();
-                    break;
-
-                case 4:
-                    ShowSearchReportsMenu();
-                    break;
-
-                case 5:
-                    ShowPersistenceMenu();
-                    break;
-
-                case 6:
-                    ConfirmExitAndSave();
-                    break;
-
-                default:
-                    Console.WriteLine("Opcion invalida");
-                    break;
+                case 1: ShowBooksMenu(); break;
+                case 2: ShowUsersMenu(); break;
+                case 3: ShowLoansMenu(); break;
+                case 4: ShowSearchReportsMenu(); break;
+                case 5: ShowPersistenceMenu(); break;
+                case 6: ConfirmExitAndSave(); break;
+                default: Console.WriteLine("Opcion invalida"); break;
             }
         }
     }
@@ -195,14 +175,15 @@ class Program
     {
         int opcion = 0;
 
-        while (opcion != 5)
+        while (opcion != 6)
         {
             Console.WriteLine("\n===== MENU PRESTAMOS =====");
             Console.WriteLine("1. Crear prestamo");
             Console.WriteLine("2. Listar prestamos");
-            Console.WriteLine("3. Registrar devolucion");
-            Console.WriteLine("4. Eliminar prestamo");
-            Console.WriteLine("5. Volver");
+            Console.WriteLine("3. Ver detalle de prestamo");
+            Console.WriteLine("4. Registrar devolucion");
+            Console.WriteLine("5. Eliminar prestamo");
+            Console.WriteLine("6. Volver");
 
             Console.Write("Seleccione una opcion: ");
             opcion = Convert.ToInt32(Console.ReadLine());
@@ -211,16 +192,46 @@ class Program
             {
                 case 1: CreateLoan(); break;
                 case 2: ListLoansMenu(); break;
-                case 3: RegisterReturn(); break;
-                case 4: DeleteLoan(); break;
-                case 5: Console.WriteLine("Volviendo..."); break;
+                case 3: ViewLoanDetail(); break;
+                case 4: RegisterReturn(); break;
+                case 5: DeleteLoan(); break;
+                case 6: Console.WriteLine("Volviendo..."); break;
+                default: Console.WriteLine("Opcion invalida"); break;
+            }
+        }
+    }
+
+    static void ListLoansMenu()
+    {
+        int opcion = 0;
+
+        while (opcion != 4)
+        {
+            Console.WriteLine("\n===== LISTAR PRESTAMOS =====");
+            Console.WriteLine("1. Todos");
+            Console.WriteLine("2. Activos");
+            Console.WriteLine("3. Cerrados");
+            Console.WriteLine("4. Volver");
+
+            Console.Write("Seleccione una opcion: ");
+            opcion = Convert.ToInt32(Console.ReadLine());
+
+            switch (opcion)
+            {
+                case 1: ListLoansAll(); break;
+                case 2: ListLoansActive(); break;
+                case 3: ListLoansClosed(); break;
+                case 4: Console.WriteLine("Volviendo..."); break;
                 default: Console.WriteLine("Opcion invalida"); break;
             }
         }
     }
 
     static void CreateLoan() => Console.WriteLine("Creando préstamo (validar usuario activo y libro disponible)...");
-    static void ListLoansMenu() => Console.WriteLine("Listando préstamos...");
+    static void ListLoansAll() => Console.WriteLine("Listando todos los préstamos...");
+    static void ListLoansActive() => Console.WriteLine("Listando préstamos activos...");
+    static void ListLoansClosed() => Console.WriteLine("Listando préstamos cerrados...");
+    static void ViewLoanDetail() => Console.WriteLine("Mostrando detalle del préstamo...");
     static void RegisterReturn() => Console.WriteLine("Registrando devolución...");
     static void DeleteLoan() => Console.WriteLine("Eliminando préstamo...");
 
